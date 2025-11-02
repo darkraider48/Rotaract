@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setupScrollAnimations(); // Setup animations for new content
             lucide.createIcons();
             window.scrollTo({ top: 0, behavior: 'auto' });
-
+            
             if (pageName === 'contact' || pageName === 'newsroom') {
                 attachContactFormListener();
             }
@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, {
             threshold: 0.1 // Trigger when 10% of the element is visible
         });
-
         revealElements.forEach(el => {
             observer.observe(el);
         });
@@ -87,13 +86,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!form) return;
         
         const status = form.querySelector('#form-status');
-
+        
         async function handleSubmit(event) {
             event.preventDefault();
             const data = new FormData(event.target);
             status.textContent = 'Sending...';
             status.style.color = 'var(--primary-color)';
-
+            
             fetch(event.target.action, {
                 method: form.method,
                 body: data,
